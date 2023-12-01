@@ -1,4 +1,5 @@
 "use client";
+import { format } from 'date-fns';
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -58,22 +59,28 @@ export default function Articles() {
       });
   }, [articles, key, username]);
   return (
+    
+    // ...
+
     <div>
-      {articles &&
-        articles.map((article: Article) => {
-          return (
-            <div key={article.id} className="">
-              <Link
-                href={article.canonical_url}
-                className="text-slate-400 flex justify-between"
-              >
-                {article.title}
-                <p>{article.published_at}</p>
-              </Link>
-              <p className="text-sm">{article.tags}</p>
-            </div>
-          );
-        })}
+      {articles ? (
+        articles.map((article: Article) => (
+          <div key={article.id} className="article-container">
+            <Link
+              href={article.canonical_url}
+              className="text-zinc-200 flex justify-between article-link  leading-6"
+            >
+             <p className='hover:underline hover:underline-offset-4'> {article.title}</p>
+              <p className="article-date">
+                {format(new Date(article.published_at), 'dd/MM/yyyy')}
+              </p>
+            </Link>
+          </div>
+        ))
+      ) : (
+        <p>Loading articles...</p>
+      )}
     </div>
   );
 }
+  
