@@ -3,35 +3,34 @@ import ProfilePicture from "./components/avatar";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import Articles from "./components/posts";
+import { Stacks } from "./components/stacks";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: "700",
+});
 
 export default function Home() {
   return (
-    <div className="text-zinc-100">
-      <div className="flex justify-between">
-        <div className="flex w-96">
-          <h1 className="">
-            Hello, I&apos;m <strong>Marcos Nikel</strong>,i love to make
-            enterprise code goes to production and impact directly into users
-            🥰🥰🥰{" "}
+    <div className="text-zinc-200">
+      <div className="flex justify-between items-center gap-8">
+        <div className="">
+          <h1 className="text-lg leading-9 flex-1">
+            Greetings! I&apos;m Marcos Nikel, a passionate full stack developer
+            dedicated to crafting code that not only thrives in production but
+            also directly enriches user experiences. Welcome to my portfolio!
           </h1>
         </div>
-        <div className="flex-1 flex justify-around flex-col gap-2 items-center">
-          <ProfilePicture />
-          <Link href="/resume.pdf" target="_blank">
-            <Button className=" bg-zinc-900 text-lg">Download Resume</Button>
-          </Link>
-        </div>
+        <ProfilePicture />
       </div>
       <Link href="/about" className="flex items-center gap-2">
         Learn more about me <BsArrowRight size={18} />
       </Link>
-      <div>
-        <h1 className="text-4xl my-4">My Latest Posts</h1>
-        <Articles />
-      </div>
-      <div>
-        <h1 className="text-xl mt-6">Most used stacks</h1>
-      </div>
+      <h1 className={`${roboto.className} text-5xl my-4`}>My Latest Posts</h1>
+      <Articles />
+      <h1 className="text-3xl mt-6">Most used stacks</h1>
+      <Stacks />
     </div>
   );
 }
