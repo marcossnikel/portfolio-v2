@@ -3,8 +3,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+
 export default function Navbar(){
-    const tabs = ['', "About", "Contact", "Blog"];
+    const tabs = ['', "About", "Contact"];
     const pathname = usePathname()
     return(
         <header className="flex justify-between py-5">
@@ -14,10 +15,11 @@ export default function Navbar(){
               <Link
               
               className={clsx(
-                "text-slate-400 transition-all hover:scale-105 p-1 rounded-sm",
+                `text-zinc-300 text-md transition-all hover:scale-105  rounded-sm`,
                 {
-                  'bg-zinc-600': pathname === `/${tab.toLowerCase()}`
+                  'underline underline-offset-4 ': pathname === `/${tab.toLowerCase()}`
                 }
+                
               )}
               key={tab}
               href={tab === "" ? "/" : tab.toLowerCase()}
@@ -27,7 +29,6 @@ export default function Navbar(){
             );
           })}
           </div>
-          <p>toggle theme</p>
         </header>
     )
 }
