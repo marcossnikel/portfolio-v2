@@ -9,7 +9,7 @@ import {
 import { BsList } from "react-icons/bs";
 import Link from "next/link";
 export default function Sidebar() {
-  const pages = ["ABOUT", "BLOG", "WORK", "CONTACT"];
+  const pages = ["ABOUT", "WORK", "CONTACT"];
   return (
       <Sheet>
         <SheetTrigger className="text-zinc-100">
