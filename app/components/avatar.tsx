@@ -1,10 +1,9 @@
-import { Avatar, AvatarFallback,AvatarImage } from "@/components/ui/avatar";
-
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function ProfilePicture() {
   return (
-    <Avatar className="w-40 h-40 border-2 border-muted-foreground">
-      <AvatarImage src="https://github.com/marcossnikel.png" />
+    <Avatar className="w-32 h-32">
+      <AvatarImage src="/me.jpeg" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   );
