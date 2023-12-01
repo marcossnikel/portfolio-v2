@@ -4,11 +4,21 @@ import "./globals.css";
 import Navbar from "./components/nav";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-const inter = Inter({ subsets: ["latin"] });
+import { Fira_Sans } from "next/font/google";
+
+const fira = Fira_Sans({
+  subsets: ["latin"],
+  weight: "500",
+});
+
+
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="px-52">
       <body
-        className={`${poppins.className} bg-zinc-900 flex flex-col h-screen justify-between py-10`}
+        className={`${fira.className} bg-zinc-900 flex flex-col h-screen justify-between py-10`}
       >
         <Navbar />
         {children}
