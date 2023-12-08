@@ -1,5 +1,5 @@
 "use client";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -42,7 +42,7 @@ type Article = {
 };
 
 export default function Articles() {
-  const [articles, setArticles] = useState();
+  const [articles, setArticles] = useState<Article[]>([]); // Initialize articles as an empty array of Article type.
 
   const username = "marcossnikel";
   const key = process.env.DEVTO_API_KEY;
@@ -57,22 +57,23 @@ export default function Articles() {
       .then((res) => {
         setArticles(res.data);
       });
-  }, [articles, key, username]);
-  return (
-    
-    // ...
+  }, [key, username]);
 
+  return (
     <div>
-      {articles ? (
+      {articles.length > 0 ? (
         articles.map((article: Article) => (
           <div key={article.id} className="article-container">
             <Link
               href={article.canonical_url}
               className="text-zinc-200 flex justify-between article-link  leading-6"
             >
-             <p className='hover:underline hover:underline-offset-4'> {article.title}</p>
+              <p className="hover:underline hover:underline-offset-4">
+                {" "}
+                {article.title}
+              </p>
               <p className="article-date">
-                {format(new Date(article.published_at), 'dd/MM/yyyy')}
+                {format(new Date(article.published_at), "dd/MM/yyyy")}
               </p>
             </Link>
           </div>
@@ -83,4 +84,3 @@ export default function Articles() {
     </div>
   );
 }
-  
