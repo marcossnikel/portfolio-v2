@@ -11,14 +11,10 @@ const fira = Fira_Sans({
   weight: "500",
 });
 
-
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: "500",
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
