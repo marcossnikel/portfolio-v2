@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import ProfilePicture from "./components/avatar";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
