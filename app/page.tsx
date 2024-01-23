@@ -1,7 +1,7 @@
 import ProfilePicture from "./components/avatar";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
-import Articles from "./components/posts";
+import Articles from "./components/articles";
 import { Stacks } from "./components/stacks";
 import { Roboto } from "next/font/google";
 
